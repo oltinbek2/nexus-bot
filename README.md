@@ -1,1 +1,2 @@
-# nexus-bot
+aiogram
+apscheduler
