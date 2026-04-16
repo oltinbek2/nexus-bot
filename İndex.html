@@ -14,42 +14,43 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{min-height:100vh;}
 body{background:var(--dark);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(240,165,0,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(240,165,0,0.03) 1px,transparent 1px);
-  background-size:40px 40px;z-index:0;
-}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(240,165,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(240,165,0,0.03) 1px,transparent 1px);
+  background-size:40px 40px;z-index:0;}
 .particle{position:fixed;border-radius:50%;pointer-events:none;background:var(--gold);opacity:0;animation:ptcl linear infinite;z-index:0;}
 @keyframes ptcl{0%{transform:translateY(110vh);opacity:0;}10%{opacity:.3;}90%{opacity:.07;}100%{transform:translateY(-10vh);opacity:0;}}
+
+/* ─── HEADER ─── */
 header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;background:rgba(6,11,16,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;}
 .logo-svg{width:40px;height:40px;flex-shrink:0;}
 .logo-name{font-family:'Orbitron',monospace;font-weight:900;font-size:20px;letter-spacing:4px;background:linear-gradient(120deg,#c07b00,#f0a500,#ffd166,#f0a500);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gshimmer 3s linear infinite;}
 @keyframes gshimmer{0%{background-position:0%;}100%{background-position:200%;}}
 .logo-tag{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:5px;color:var(--muted);display:block;margin-top:-2px;}
-.header-right{display:flex;align-items:center;gap:10px;}
+.header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .hbadge{display:none;align-items:center;gap:7px;background:var(--dark3);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--gold);}
 .hbadge.on{display:flex;}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:blink 1.5s ease infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
 .btn-sm{background:none;border:1px solid currentColor;border-radius:6px;padding:5px 13px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.btn-red{color:var(--red);}
-.btn-red:hover{background:var(--red);color:#fff;}
-.btn-gold{color:var(--gold);}
-.btn-gold:hover{background:var(--gold);color:#000;}
+.btn-red{color:var(--red);}.btn-red:hover{background:var(--red);color:#fff;}
+.btn-gold{color:var(--gold);}.btn-gold:hover{background:var(--gold);color:#000;}
+
+/* ─── SCREENS ─── */
 .scr{display:none;position:relative;z-index:1;min-height:100vh;padding-top:72px;align-items:center;justify-content:center;flex-direction:column;}
 .scr.on{display:flex;}
 #s-login{background:radial-gradient(ellipse at 30% 60%,rgba(240,165,0,0.07) 0%,transparent 55%),radial-gradient(ellipse at 75% 25%,rgba(0,180,255,0.04) 0%,transparent 50%);}
 #s-register{background:radial-gradient(ellipse at 70% 40%,rgba(240,165,0,0.06) 0%,transparent 55%);}
+
+/* ─── CARD ─── */
 .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:44px 40px;width:min(420px,93vw);box-shadow:0 0 80px rgba(240,165,0,0.07),0 28px 56px rgba(0,0,0,.55);animation:pop .45s cubic-bezier(.16,1,.3,1);}
 @keyframes pop{from{opacity:0;transform:scale(.94) translateY(20px);}to{opacity:1;transform:none;}}
 .card-title{font-family:'Orbitron',monospace;font-size:16px;font-weight:700;color:var(--gold);text-align:center;letter-spacing:2px;margin-bottom:6px;}
 .card-sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:32px;letter-spacing:.5px;}
 .igrp{margin-bottom:16px;}
 .igrp label{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:2.5px;margin-bottom:7px;text-transform:uppercase;}
-.igrp input, .igrp select{width:100%;background:var(--dark2);border:1px solid rgba(240,165,0,0.15);border-radius:9px;padding:12px 15px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:15px;outline:none;transition:border .2s,box-shadow .2s;}
-.igrp input:focus, .igrp select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,165,0,0.1);}
+.igrp input,.igrp select{width:100%;background:var(--dark2);border:1px solid rgba(240,165,0,0.15);border-radius:9px;padding:12px 15px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:15px;outline:none;transition:border .2s,box-shadow .2s;}
+.igrp input:focus,.igrp select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,165,0,0.1);}
 .igrp select option{background:var(--dark2);}
 .btn-main{width:100%;background:linear-gradient(135deg,#c07b00,#f0a500,#e09400);border:none;border-radius:10px;padding:14px;color:#000;font-family:'Orbitron',monospace;font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;margin-top:8px;transition:all .2s;position:relative;overflow:hidden;}
 .btn-main::after{content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:rgba(255,255,255,0.25);transform:skewX(-20deg);transition:left .4s;}
@@ -62,21 +63,30 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
 .err{color:var(--red);font-size:12px;font-weight:600;letter-spacing:1px;margin-top:10px;text-align:center;min-height:18px;}
 .ok-msg{color:var(--green);font-size:12px;font-weight:600;letter-spacing:1px;margin-top:10px;text-align:center;min-height:18px;}
 
-/* MAIN */
+/* ─── MAIN DASHBOARD ─── */
 #s-main{background:radial-gradient(ellipse at 50% 0%,rgba(240,165,0,0.08) 0%,transparent 50%);align-items:stretch;justify-content:flex-start;}
-.main-inner{max-width:860px;width:100%;margin:0 auto;padding:36px 20px 60px;}
+.main-inner{max-width:900px;width:100%;margin:0 auto;padding:36px 20px 60px;}
 .welcome-band{text-align:center;margin-bottom:44px;}
 .welcome-title{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;letter-spacing:3px;background:linear-gradient(120deg,#c07b00,#ffd166,#f0a500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
 .welcome-sub{color:var(--muted);font-size:14px;letter-spacing:2px;}
 .sec-lbl{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .sec-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* coin balance bar */
+.coin-bar{display:flex;align-items:center;justify-content:center;gap:16px;background:var(--dark3);border:1px solid var(--border);border-radius:14px;padding:14px 20px;margin-bottom:28px;}
+.coin-display{display:flex;align-items:center;gap:8px;font-family:'Orbitron',monospace;font-size:18px;font-weight:900;color:var(--gold2);}
+.coin-display svg{width:24px;height:24px;}
+.coin-buy-btn{background:linear-gradient(135deg,#c07b00,#f0a500);border:none;border-radius:8px;padding:8px 18px;color:#000;font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;}
+.coin-buy-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(240,165,0,.35);}
+
+/* UC GRID */
 .uc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;margin-bottom:28px;}
 .uc-card{background:var(--dark3);border:1px solid rgba(240,165,0,0.15);border-radius:14px;padding:20px 14px;text-align:center;cursor:pointer;transition:all .22s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
 .uc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(240,165,0,0.12),transparent);opacity:0;transition:opacity .2s;}
 .uc-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 28px rgba(240,165,0,.18);}
 .uc-card:hover::before,.uc-card.sel::before{opacity:1;}
 .uc-card.sel{border-color:var(--gold);background:linear-gradient(135deg,rgba(240,165,0,.12),var(--dark3));box-shadow:0 0 24px rgba(240,165,0,.2);}
-.uc-icon{font-size:26px;margin-bottom:8px;}
+.uc-icon{margin-bottom:8px;display:flex;justify-content:center;}
 .uc-amount{font-family:'Orbitron',monospace;font-size:18px;font-weight:900;color:var(--gold);}
 .uc-label{font-size:11px;color:var(--muted);letter-spacing:2px;margin-top:2px;}
 .custom-uc{background:var(--dark3);border:1px solid var(--border);border-radius:14px;padding:22px 20px;margin-bottom:28px;}
@@ -91,27 +101,68 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
 .order-title{font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:14px;}
 .order-info{font-size:15px;color:var(--text);margin-bottom:6px;line-height:1.7;}
 .order-info span{color:var(--gold);font-weight:700;}
-.sms-banner{margin-top:18px;background:rgba(255,59,92,0.08);border:1px solid rgba(255,59,92,0.3);border-radius:10px;padding:16px 18px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text);line-height:1.8;letter-spacing:.5px;}
-.sms-phone{font-size:22px;font-weight:700;color:var(--gold);letter-spacing:3px;display:block;margin-top:6px;}
+.sms-banner{margin-top:18px;background:rgba(255,59,92,0.08);border:1px solid rgba(255,59,92,0.3);border-radius:10px;padding:16px 18px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text);line-height:2;letter-spacing:.5px;}
+.sms-phone{font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px;display:block;margin-top:6px;}
 
-/* ADMIN */
+/* ─── BARABAN (SPIN WHEEL) ─── */
+#s-spin{background:radial-gradient(ellipse at 50% 30%,rgba(240,165,0,0.1) 0%,transparent 60%);align-items:stretch;justify-content:flex-start;}
+.spin-inner{max-width:700px;width:100%;margin:0 auto;padding:36px 20px 60px;text-align:center;}
+.spin-title{font-family:'Orbitron',monospace;font-size:22px;font-weight:900;letter-spacing:3px;color:var(--gold);margin-bottom:6px;}
+.spin-sub{color:var(--muted);font-size:13px;letter-spacing:2px;margin-bottom:8px;}
+.coin-cost-note{background:rgba(240,165,0,0.08);border:1px solid var(--border);border-radius:8px;padding:10px 18px;display:inline-block;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--gold2);margin-bottom:32px;letter-spacing:1px;}
+
+/* WHEEL */
+.wheel-wrap{position:relative;display:inline-block;margin-bottom:30px;}
+.wheel-pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:24px solid var(--red);filter:drop-shadow(0 0 6px rgba(255,59,92,.8));z-index:10;}
+canvas#wheel{border-radius:50%;box-shadow:0 0 40px rgba(240,165,0,.25),0 0 80px rgba(240,165,0,.1);display:block;}
+.spin-btn{background:linear-gradient(135deg,#c07b00,#f0a500,#e09400);border:none;border-radius:12px;padding:16px 48px;color:#000;font-family:'Orbitron',monospace;font-size:14px;font-weight:900;letter-spacing:3px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;margin-top:4px;}
+.spin-btn::after{content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:rgba(255,255,255,.3);transform:skewX(-20deg);transition:left .4s;}
+.spin-btn:hover::after{left:130%;}
+.spin-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,165,0,.4);}
+.spin-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.spin-result{margin-top:24px;min-height:60px;}
+.result-badge{display:inline-block;background:linear-gradient(135deg,rgba(240,165,0,.15),rgba(240,165,0,.05));border:2px solid var(--gold);border-radius:16px;padding:16px 32px;font-family:'Orbitron',monospace;font-size:20px;font-weight:900;color:var(--gold);animation:pop .4s ease;}
+
+/* COIN SHOP MODAL */
+.coin-shop-wrap{background:var(--dark3);border:1px solid var(--border);border-radius:14px;padding:22px 20px;margin-top:28px;text-align:left;}
+.coin-shop-title{font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:16px;}
+.coin-packages{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
+.coin-pkg{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .2s;}
+.coin-pkg:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 20px rgba(240,165,0,.15);}
+.coin-pkg-amt{font-family:'Orbitron',monospace;font-size:20px;font-weight:900;color:var(--gold2);}
+.coin-pkg-label{font-size:11px;color:var(--muted);letter-spacing:1px;margin-top:3px;}
+.coin-pkg-price{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--green);margin-top:6px;}
+
+/* ─── ADMIN ─── */
 #s-admin{background:radial-gradient(ellipse at 20% 30%,rgba(255,59,92,.07) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(240,165,0,.06) 0%,transparent 50%);align-items:stretch;justify-content:flex-start;}
-.admin-inner{max-width:900px;width:100%;margin:0 auto;padding:36px 20px 60px;}
+.admin-inner{max-width:960px;width:100%;margin:0 auto;padding:36px 20px 60px;}
 .admin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;}
 .admin-title{font-family:'Orbitron',monospace;font-size:22px;font-weight:900;letter-spacing:3px;color:var(--red);}
 .admin-tag{background:rgba(255,59,92,.12);border:1px solid rgba(255,59,92,.3);border-radius:20px;padding:5px 14px;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--red);letter-spacing:3px;}
-.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-bottom:32px;}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-bottom:32px;}
 .stat-card{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:18px 16px;}
 .stat-num{font-family:'Orbitron',monospace;font-size:26px;font-weight:900;color:var(--gold);margin-bottom:4px;}
 .stat-lbl{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
-.tbl-wrap{background:var(--dark3);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:28px;}
-.tbl-head{background:rgba(240,165,0,0.07);display:grid;grid-template-columns:1fr 1fr 0.7fr 0.8fr 0.6fr;padding:12px 18px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;}
-.tbl-row{display:grid;grid-template-columns:1fr 1fr 0.7fr 0.8fr 0.6fr;padding:12px 18px;border-top:1px solid rgba(255,255,255,0.04);align-items:center;transition:background .15s;font-size:13px;}
+.tbl-wrap{background:var(--dark3);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:28px;overflow-x:auto;}
+.tbl-head{background:rgba(240,165,0,0.07);display:grid;grid-template-columns:1.2fr 1fr 0.5fr 0.6fr 0.6fr 1.5fr;padding:12px 18px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;min-width:560px;}
+.tbl-row{display:grid;grid-template-columns:1.2fr 1fr 0.5fr 0.6fr 0.6fr 1.5fr;padding:11px 18px;border-top:1px solid rgba(255,255,255,0.04);align-items:center;transition:background .15s;font-size:13px;min-width:560px;}
 .tbl-row:hover{background:rgba(240,165,0,0.04);}
+.tbl-row.banned{opacity:.5;background:rgba(255,59,92,0.04);}
+.spin-log-row{display:grid;grid-template-columns:1fr 0.8fr 1fr;padding:10px 18px;border-top:1px solid rgba(255,255,255,0.04);font-size:13px;transition:background .15s;}
+.spin-log-row:hover{background:rgba(240,165,0,0.03);}
 .tag{font-size:10px;font-weight:600;letter-spacing:1px;padding:3px 9px;border-radius:20px;}
 .tag-user{background:rgba(0,230,118,.1);color:var(--green);}
-.tag-admin{background:rgba(255,59,92,.1);color:var(--red);}
-.uc-send-box{background:var(--dark3);border:1px solid var(--border);border-radius:14px;padding:24px 22px;margin-bottom:28px;}
+.tag-adm{background:rgba(255,59,92,.1);color:var(--red);}
+.tag-ban{background:rgba(255,59,92,.2);color:var(--red);}
+.act-btns{display:flex;gap:5px;flex-wrap:wrap;}
+.act-btn{border:none;border-radius:5px;padding:4px 9px;font-family:'Share Tech Mono',monospace;font-size:9px;cursor:pointer;transition:all .15s;font-weight:700;letter-spacing:.5px;}
+.act-admin{background:rgba(240,165,0,.15);color:var(--gold);border:1px solid rgba(240,165,0,.3);}
+.act-admin:hover{background:var(--gold);color:#000;}
+.act-ban{background:rgba(255,165,0,.1);color:#ffa500;border:1px solid rgba(255,165,0,.3);}
+.act-ban:hover{background:#ffa500;color:#000;}
+.act-del{background:rgba(255,59,92,.1);color:var(--red);border:1px solid rgba(255,59,92,.3);}
+.act-del:hover{background:var(--red);color:#fff;}
+.uc-send-box{background:var(--dark3);border:1px solid var(--border);border-radius:14px;padding:24px 22px;}
 .uc-send-title{font-family:'Orbitron',monospace;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:18px;}
 .send-row{display:flex;gap:12px;flex-wrap:wrap;}
 .send-row input,.send-row select{flex:1;min-width:140px;background:var(--dark2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:14px;outline:none;transition:border .2s;}
@@ -119,45 +170,45 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
 .send-row select option{background:var(--dark2);}
 .btn-send{background:linear-gradient(135deg,#c07b00,#f0a500);border:none;border-radius:8px;padding:11px 22px;color:#000;font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;transition:all .2s;white-space:nowrap;}
 .btn-send:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(240,165,0,.3);}
-.role-btn{background:none;border:1px solid var(--gold);color:var(--gold);border-radius:6px;padding:4px 10px;font-size:10px;cursor:pointer;transition:all .2s;font-family:'Share Tech Mono',monospace;}
-.role-btn:hover{background:var(--gold);color:#000;}
+
+/* ─── TOAST / MODAL / OVERLAY ─── */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--dark3);border:1px solid var(--gold);border-radius:10px;padding:12px 24px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--gold);letter-spacing:1px;box-shadow:0 8px 32px rgba(0,0,0,.5);z-index:999;transition:transform .3s cubic-bezier(.16,1,.3,1);white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);z-index:300;align-items:center;justify-content:center;}
 .overlay.on{display:flex;}
 .modal{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:40px 36px;width:min(380px,90vw);box-shadow:0 0 60px rgba(240,165,0,.1);animation:pop .3s ease;text-align:center;}
 .modal-icon{font-size:36px;margin-bottom:14px;}
 .modal-title{font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:8px;}
 .modal-sub{color:var(--muted);font-size:13px;margin-bottom:22px;line-height:1.6;}
-.img-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
-.img-item{width:100%;height:80px;border:1px solid var(--border);border-radius:8px;background:var(--dark2);object-fit:cover;}
-@media(max-width:520px){
-  .card{padding:32px 22px;}
-  .tbl-head,.tbl-row{grid-template-columns:1fr 1fr 1fr;font-size:11px;}
-  .tbl-head span:nth-child(4),.tbl-head span:nth-child(5),.tbl-row span:nth-child(4),.tbl-row span:nth-child(5){display:none;}
+
+/* nav tabs */
+.nav-tabs{display:flex;gap:6px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;}
+.nav-tab{background:none;border:1px solid var(--border);border-radius:8px;padding:8px 18px;color:var(--muted);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;cursor:pointer;transition:all .2s;}
+.nav-tab.active,.nav-tab:hover{border-color:var(--gold);color:var(--gold);background:rgba(240,165,0,.07);}
+
+@media(max-width:600px){
+  .card{padding:28px 18px;}
+  .tbl-head,.tbl-row{min-width:400px;}
+  .spin-title{font-size:16px;}
+  canvas#wheel{width:280px!important;height:280px!important;}
 }
 </style>
 </head>
 <body>
-
 <div id="ptcls"></div>
 
+<!-- HEADER -->
 <header>
   <a class="logo" href="#">
-    <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-svg" viewBox="0 0 40 40" fill="none">
       <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" fill="none" stroke="#f0a500" stroke-width="1.5"/>
       <polygon points="20,8 32,15 32,25 20,32 8,25 8,15" fill="rgba(240,165,0,0.07)" stroke="rgba(240,165,0,0.4)" stroke-width="1"/>
       <text x="11" y="25" font-family="Georgia" font-size="12" font-weight="bold" fill="#ffd166">UC</text>
       <circle cx="20" cy="20" r="2.5" fill="#f0a500"/>
       <line x1="20" y1="2" x2="20" y2="8" stroke="#f0a500" stroke-width="1.5"/>
       <line x1="20" y1="32" x2="20" y2="38" stroke="#f0a500" stroke-width="1.5"/>
-      <line x1="3" y1="11" x2="8" y2="14" stroke="#f0a500" stroke-width="1"/>
-      <line x1="32" y1="26" x2="37" y2="29" stroke="#f0a500" stroke-width="1"/>
     </svg>
-    <div>
-      <span class="logo-name">STORM UC</span>
-      <span class="logo-tag">PREMIUM STORE</span>
-    </div>
+    <div><span class="logo-name">STORM UC</span><span class="logo-tag">PREMIUM STORE</span></div>
   </a>
   <div class="header-right">
     <div class="hbadge" id="hbadge"><span class="dot"></span><span id="hbadge-name">—</span></div>
@@ -166,27 +217,21 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
   </div>
 </header>
 
-<!-- LOGIN -->
+<!-- ══════ LOGIN ══════ -->
 <div class="scr on" id="s-login">
   <div class="card">
     <div class="card-title">⚡ STORM UC</div>
     <div class="card-sub">Hisobingizga kiring</div>
-    <div class="igrp">
-      <label>Ism (Nick)</label>
-      <input type="text" id="l-name" placeholder="PROGAMER777">
-    </div>
-    <div class="igrp">
-      <label>Parol</label>
-      <input type="password" id="l-pass" placeholder="••••••••">
-    </div>
+    <div class="igrp"><label>Ism (Nick)</label><input type="text" id="l-name" placeholder="PROGAMER777"></div>
+    <div class="igrp"><label>Parol</label><input type="password" id="l-pass" placeholder="••••••••"></div>
     <div class="err" id="l-err"></div>
-    <button class="btn-main" id="l-btn" onclick="loginStep()">KIRISH</button>
+    <button class="btn-main" onclick="loginStep()">KIRISH</button>
     <div class="divider">yoki</div>
     <div style="text-align:center;font-size:13px;color:var(--muted)">Akkaunt yo'qmi? <button class="link-btn" onclick="showScr('s-register')">Ro'yxatdan o'tish</button></div>
   </div>
 </div>
 
-<!-- REGISTER -->
+<!-- ══════ REGISTER ══════ -->
 <div class="scr" id="s-register">
   <div class="card">
     <div class="card-title">YANGI AKKAUNT</div>
@@ -203,39 +248,89 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
   </div>
 </div>
 
-<!-- MAIN DASHBOARD -->
+<!-- ══════ MAIN DASHBOARD ══════ -->
 <div class="scr" id="s-main">
   <div class="main-inner">
     <div class="welcome-band">
       <div class="welcome-title" id="w-name">SALOM, GAMER!</div>
       <div class="welcome-sub">UC SOTIB OLISH UCHUN MIQDOR TANLANG</div>
     </div>
-    <div class="sec-lbl">UC PAKETLAR</div>
-    <div class="uc-grid" id="uc-grid"></div>
-    <div class="sec-lbl">O'ZINGIZ KIRITING</div>
-    <div class="custom-uc">
-      <p>Nechta UC kerakligini yozing:</p>
-      <div class="custom-row">
-        <input type="number" id="cuc" placeholder="Masalan: 180">
-        <button onclick="selCustom()">TANLASH</button>
+
+    <!-- NAV TABS -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" id="tab-uc" onclick="switchTab('uc')">🎮 UC SOTIB OLISH</button>
+      <button class="nav-tab" id="tab-spin" onclick="switchTab('spin')">🎡 BARABAN</button>
+    </div>
+
+    <!-- UC TAB -->
+    <div id="panel-uc">
+      <div class="sec-lbl">UC PAKETLAR</div>
+      <div class="uc-grid" id="uc-grid"></div>
+      <div class="sec-lbl">O'ZINGIZ KIRITING</div>
+      <div class="custom-uc">
+        <p>Nechta UC kerakligini yozing:</p>
+        <div class="custom-row">
+          <input type="number" id="cuc" placeholder="Masalan: 180">
+          <button onclick="selCustom()">TANLASH</button>
+        </div>
+      </div>
+      <div class="order-box" id="obox">
+        <div class="order-title">📦 BUYURTMA MA'LUMOTI</div>
+        <div class="order-info">Tanlangan UC: <span id="o-uc">—</span></div>
+        <div class="order-info">PUBG ID: <span id="o-id">—</span></div>
+        <div class="order-info">Nick: <span id="o-nick">—</span></div>
+        <div class="sms-banner">
+          📲 To'lov qilish uchun quyidagi raqamlardan biriga SMS yuboring:
+          <span class="sms-phone">☎ 50-503-22-65</span>
+          <span class="sms-phone">☎ 95-230-42-22</span>
+          SMS matni: <b>"UC [miqdor] [PUBG ID]"</b><br>
+          <span style="color:var(--muted);font-size:12px;">To'lovdan keyin admin UC yuboradi.</span>
+        </div>
       </div>
     </div>
-    <div class="order-box" id="obox">
-      <div class="order-title">📦 BUYURTMA MA'LUMOTI</div>
-      <div class="order-info">Tanlangan UC: <span id="o-uc">—</span></div>
-      <div class="order-info">PUBG ID: <span id="o-id">—</span></div>
-      <div class="order-info">Nick: <span id="o-nick">—</span></div>
-      <div class="sms-banner">
-        📲 To'lov qilish uchun quyidagi raqamgalarning 1'tasiga SMS yuboring:
-        <span class="sms-phone">☎ 50-503-22-65 ☎ 97-247-45-44 ☎ 95-230-42-22</span>
-        SMS matni: <b>"UC [miqdor] [PUBG ID]"</b><br>
-        <span style="color:var(--muted);font-size:12px;">To'lovdan keyin admin UC yuboradi.</span>
+
+    <!-- SPIN TAB -->
+    <div id="panel-spin" style="display:none">
+      <div style="text-align:center">
+        <div class="spin-title">🎡 BARABAN</div>
+        <div class="spin-sub">Aylantiring — UC yutib oling!</div>
+        <div class="coin-cost-note">1 aylanish = 5 🪙 COIN</div>
+
+        <!-- coin balance -->
+        <div class="coin-bar" style="max-width:360px;margin:0 auto 28px;">
+          <div class="coin-display">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#f0a500" stroke="#ffd166" stroke-width="1"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#3a2000" font-family="Georgia">C</text></svg>
+            <span id="spin-coins">0</span> COIN
+          </div>
+          <button class="coin-buy-btn" onclick="showCoinShop()">+ COIN SOTIB OL</button>
+        </div>
+
+        <div class="wheel-wrap">
+          <div class="wheel-pointer"></div>
+          <canvas id="wheel" width="320" height="320"></canvas>
+        </div>
+        <br>
+        <button class="spin-btn" id="spin-btn" onclick="doSpin()">▶ AYLANTIRISH (5 🪙)</button>
+        <div class="spin-result" id="spin-result"></div>
+      </div>
+
+      <!-- coin shop -->
+      <div class="coin-shop-wrap" id="coin-shop" style="display:none">
+        <div class="coin-shop-title">🪙 COIN SOTIB OLISH</div>
+        <div class="coin-packages" id="coin-pkgs"></div>
+        <div class="sms-banner" style="margin-top:16px">
+          📲 To'lov qilib SMS yuboring:
+          <span class="sms-phone">☎ 50-503-22-65</span>
+          <span class="sms-phone">☎ 95-230-42-22</span>
+          SMS: <b>"COIN [miqdor] [nick]"</b>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
 
-<!-- ADMIN PANEL -->
+<!-- ══════ ADMIN PANEL ══════ -->
 <div class="scr" id="s-admin">
   <div class="admin-inner">
     <div class="admin-hdr">
@@ -248,10 +343,10 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
     <div class="stats-row" id="stats-row"></div>
     <div class="sec-lbl" style="margin-bottom:16px;">FOYDALANUVCHILAR</div>
     <div class="tbl-wrap">
-      <div class="tbl-head"><span>NICK</span><span>PUBG ID</span><span>UC</span><span>ROL</span><span>HARAKAT</span></div>
+      <div class="tbl-head"><span>NICK</span><span>PUBG ID</span><span>UC</span><span>🪙/🎡</span><span>ROL</span><span>AMALLAR</span></div>
       <div id="users-tbl"></div>
     </div>
-    <div class="uc-send-box">
+    <div class="uc-send-box" style="margin-bottom:16px">
       <div class="uc-send-title">💸 UC YUBORISH</div>
       <div class="send-row">
         <select id="send-sel"><option value="">Foydalanuvchi tanlang</option></select>
@@ -259,6 +354,22 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
         <button class="btn-send" onclick="sendUC()">YUBORISH</button>
       </div>
       <div class="ok-msg" id="send-ok"></div>
+    </div>
+    <div class="uc-send-box" style="margin-bottom:28px">
+      <div class="uc-send-title">🪙 COIN YUBORISH</div>
+      <div class="send-row">
+        <select id="coin-send-sel"><option value="">Foydalanuvchi tanlang</option></select>
+        <input type="number" id="coin-send-amt" placeholder="Coin miqdori">
+        <button class="btn-send" style="background:linear-gradient(135deg,#a07000,#d4a000)" onclick="sendCoin()">YUBORISH</button>
+      </div>
+      <div class="ok-msg" id="coin-send-ok"></div>
+    </div>
+    <div class="sec-lbl" style="margin-bottom:16px;">🎡 BARABAN TARIXI</div>
+    <div class="tbl-wrap">
+      <div class="spin-log-head" style="background:rgba(240,165,0,0.07);display:grid;grid-template-columns:1fr 0.8fr 1fr;padding:10px 18px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;">
+        <span>FOYDALANUVCHI</span><span>UC</span><span>VAQT</span>
+      </div>
+      <div id="spin-log"></div>
     </div>
   </div>
 </div>
@@ -277,23 +388,74 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
   </div>
 </div>
 
-<!-- IMAGE SHOWCASE MODAL -->
-<div class="overlay" id="modal-img">
+<!-- CONFIRM DELETE MODAL -->
+<div class="overlay" id="modal-confirm">
   <div class="modal">
-    <div class="modal-icon">🎨</div>
-    <div class="modal-title">UC PAKETLAR</div>
-    <div class="img-showcase" id="img-showcase"></div>
-    <button class="link-btn" onclick="closeModal('modal-img')">Yopish</button>
+    <div class="modal-icon">⚠️</div>
+    <div class="modal-title" id="confirm-title">TASDIQLASH</div>
+    <div class="modal-sub" id="confirm-msg">Davom etishni xohlaysizmi?</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-main" id="confirm-yes" style="width:auto;padding:10px 28px">HA</button>
+      <button class="link-btn" onclick="closeModal('modal-confirm')">YO'Q</button>
+    </div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ── PARTICLES
+// ══════════════════════════════════════════
+//  CONSTANTS & STORAGE
+// ══════════════════════════════════════════
+const KEY      = 'stormuc_v2';
+const MAX      = 50;
+const ADMIN_NAME = 'admin';
+const ADMIN_PASS = 'msl2015';
+const ADMIN_CODE = 'java2014';
+
+const UC_IMG = `<svg viewBox="0 0 48 48" width="38" height="38" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cg" cx="40%" cy="35%"><stop offset="0%" stop-color="#ffe066"/><stop offset="50%" stop-color="#f0a500"/><stop offset="100%" stop-color="#7a4e00"/></radialGradient></defs><circle cx="24" cy="24" r="22" fill="url(#cg)" stroke="#ffd166" stroke-width="1.5"/><circle cx="24" cy="24" r="16" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><text x="24" y="29" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#3a2000">UC</text><ellipse cx="18" cy="17" rx="4" ry="2.5" fill="rgba(255,255,255,0.25)" transform="rotate(-30 18 17)"/></svg>`;
+
+function getUsers(){try{return JSON.parse(localStorage.getItem(KEY))||[];}catch{return[];}}
+function saveUsers(a){localStorage.setItem(KEY,JSON.stringify(a));}
+function findUser(name,pass){
+  if(name.toLowerCase()===ADMIN_NAME&&pass===ADMIN_PASS) return {name:'ADMIN',id:'000000000',pass:ADMIN_PASS,role:'admin',uc:0,coins:999};
+  const u=getUsers().find(u=>u.name.toLowerCase()===name.toLowerCase()&&u.pass===pass&&!u.banned);
+  return u||null;
+}
+function getUserByName(name){
+  if(name.toLowerCase()===ADMIN_NAME) return {name:'ADMIN',role:'admin'};
+  return getUsers().find(u=>u.name.toLowerCase()===name.toLowerCase())||null;
+}
+function syncCU(){
+  if(!CU||CU.role==='admin') return;
+  const users=getUsers();
+  const fresh=users.find(u=>u.name===CU.name);
+  if(fresh) CU=fresh;
+}
+
+// ══════════════════════════════════════════
+//  SESSION
+// ══════════════════════════════════════════
+let CU = null;
+
+(function restoreSession(){
+  try{
+    const s=JSON.parse(sessionStorage.getItem('stormuc_sess'));
+    if(!s||!s.name) return;
+    if(s.role==='admin') return; // admin re-auths on reload
+    const users=getUsers();
+    const fresh=users.find(u=>u.name===s.name&&!u.banned);
+    if(fresh){CU=fresh;enterDash();}
+    else sessionStorage.removeItem('stormuc_sess');
+  }catch{}
+})();
+
+// ══════════════════════════════════════════
+//  PARTICLES
+// ══════════════════════════════════════════
 (function(){
   const c=document.getElementById('ptcls');
-  for(let i=0;i<30;i++){
+  for(let i=0;i<28;i++){
     const p=document.createElement('div');p.className='particle';
     const s=Math.random()*4+2;
     p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}vw;animation-duration:${Math.random()*14+10}s;animation-delay:${Math.random()*-20}s;`;
@@ -301,68 +463,83 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:
   }
 })();
 
-// ── STORAGE
-const KEY='stormuc_v2';
-const MAX=50;
-const ADMIN_NAME='admin';
-const ADMIN_PASS='msl2015';
-const ADMIN_CODE='java2014';
-
-// Rasm URL-lari
-const IMG_URLS=[
-  'https://via.placeholder.com/150/FFD166/000?text=60+UC',
-  'https://via.placeholder.com/150/F0A500/000?text=100+UC',
-  'https://via.placeholder.com/150/E09400/000?text=300+UC'
-];
-
-function getUsers(){try{return JSON.parse(localStorage.getItem(KEY))||[];}catch{return[];}}
-function saveUsers(a){localStorage.setItem(KEY,JSON.stringify(a));}
-
-function findUser(name,pass){
-  if(name===ADMIN_NAME&&pass===ADMIN_PASS) return {name:'ADMIN',id:'000000000',pass:ADMIN_PASS,role:'admin',uc:0};
-  return getUsers().find(u=>u.name.toLowerCase()===name.toLowerCase()&&u.pass===pass)||null;
+// ══════════════════════════════════════════
+//  LOGIN / LOGOUT
+// ══════════════════════════════════════════
+function loginStep(){
+  const name=document.getElementById('l-name').value.trim();
+  const pass=document.getElementById('l-pass').value;
+  document.getElementById('l-err').textContent='';
+  if(!name){setErr('l-err','Ismni kiriting');return;}
+  if(!pass){setErr('l-err','Parolni kiriting');return;}
+  if(name.toLowerCase()===ADMIN_NAME){
+    if(pass!==ADMIN_PASS){setErr('l-err',"Admin paroli noto'g'ri");return;}
+    CU={name:'ADMIN',id:'000000000',role:'admin',uc:0,coins:999};
+    openAdminModal();return;
+  }
+  const u=findUser(name,pass);
+  if(!u){
+    const any=getUserByName(name);
+    if(any&&any.banned){setErr('l-err','Bu akkaunt banlangan!');return;}
+    setErr('l-err',"Ism yoki parol noto'g'ri");return;
+  }
+  CU=u;enterDash();
 }
 
-function getUserByName(name){
-  if(name.toLowerCase()===ADMIN_NAME) return {name:'ADMIN',role:'admin'};
-  return getUsers().find(u=>u.name.toLowerCase()===name.toLowerCase())||null;
+function register(){
+  const id=document.getElementById('r-id').value.trim();
+  const name=document.getElementById('r-name').value.trim();
+  const pass=document.getElementById('r-pass').value;
+  const pass2=document.getElementById('r-pass2').value;
+  document.getElementById('r-err').textContent='';
+  document.getElementById('r-ok').textContent='';
+  if(!id||!name||!pass||!pass2){setErr('r-err',"Barcha maydonlarni to'ldiring");return;}
+  if(pass!==pass2){setErr('r-err',"Parollar mos emas");return;}
+  if(pass.length<6){setErr('r-err',"Parol kamida 6 ta belgi");return;}
+  if(name.toLowerCase()===ADMIN_NAME){setErr('r-err',"Bu nom band");return;}
+  const users=getUsers();
+  if(users.length>=MAX){setErr('r-err',`Maksimal ${MAX} foydalanuvchi to'ldi`);return;}
+  if(users.find(u=>u.name.toLowerCase()===name.toLowerCase())){setErr('r-err',"Bu ism allaqachon band");return;}
+  users.push({name,id,pass,role:'user',uc:0,coins:0,banned:false});
+  saveUsers(users);
+  document.getElementById('r-ok').textContent='✓ Akkaunt ochildi! Kirish...';
+  setTimeout(()=>{resetLogin();showScr('s-login');},1600);
 }
 
-// ── SESSION
-let CU=null;
-
-// Sessiyani saqla
-function saveSession(){
-  if(CU) localStorage.setItem('stormuc_session',JSON.stringify(CU));
-  else localStorage.removeItem('stormuc_session');
+function enterDash(){
+  showScr('s-main');
+  document.getElementById('w-name').textContent='SALOM, '+CU.name.toUpperCase()+'!';
+  document.getElementById('hbadge-name').textContent=CU.name;
+  document.getElementById('hbadge').classList.add('on');
+  document.getElementById('btn-logout').style.display='inline-block';
+  if(CU.role==='admin') document.getElementById('btn-adm-panel').style.display='inline-block';
+  sessionStorage.setItem('stormuc_sess',JSON.stringify({name:CU.name,role:CU.role}));
+  buildGrid();
+  updateCoinDisplay();
+  initWheel();
+  toast('Xush kelibsiz, '+CU.name+'!');
 }
 
-// Sessiyani qaytarish
-function restoreSession(){
-  try{
-    const s=JSON.parse(localStorage.getItem('stormuc_session'));
-    if(s && s.name){
-      CU=s;
-      if(CU.role==='admin') enterAdmin();
-      else enterDash();
-    }
-  }catch(e){}
+function logout(){
+  CU=null;resetLogin();
+  sessionStorage.removeItem('stormuc_sess');
+  showScr('s-login');
+  document.getElementById('hbadge').classList.remove('on');
+  document.getElementById('btn-logout').style.display='none';
+  document.getElementById('btn-adm-panel').style.display='none';
+  toast('Chiqildi.');
 }
 
-// ── UC PACKAGES
-const PKGS=[
-  {uc:60,icon:'🎮',img:IMG_URLS[0]},
-  {uc:100,icon:'⚡',img:IMG_URLS[1]},
-  {uc:300,icon:'💎',img:IMG_URLS[1]},
-  {uc:360,icon:'🔥',img:IMG_URLS[2]},
-  {uc:720,icon:'👑',img:IMG_URLS[2]}
-];
+// ══════════════════════════════════════════
+//  UC PACKAGES
+// ══════════════════════════════════════════
+const PKGS=[{uc:60},{uc:100},{uc:300},{uc:360},{uc:720}];
 
 function buildGrid(){
   const g=document.getElementById('uc-grid');g.innerHTML='';
   PKGS.forEach(p=>{
     const d=document.createElement('div');d.className='uc-card';
-    d.innerHTML=`<div class="uc-icon">${p.icon}</div><div class="uc-amount">${p.uc}</div><div class="uc-label">UC</div>`;
+    d.innerHTML=`<div class="uc-icon">${UC_IMG}</div><div class="uc-amount">${p.uc}</div><div class="uc-label">UC</div>`;
     d.onclick=()=>{document.querySelectorAll('.uc-card').forEach(x=>x.classList.remove('sel'));d.classList.add('sel');showOrder(p.uc);};
     g.appendChild(d);
   });
@@ -376,6 +553,7 @@ function selCustom(){
 }
 
 function showOrder(uc){
+  syncCU();
   document.getElementById('o-uc').textContent=uc+' UC';
   document.getElementById('o-id').textContent=CU?.id||'—';
   document.getElementById('o-nick').textContent=CU?.name||'—';
@@ -383,38 +561,238 @@ function showOrder(uc){
   b.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-function showImageModal(){
-  const isc=document.getElementById('img-showcase');
-  isc.innerHTML=PKGS.map((p,i)=>`<img src="${p.img}" class="img-item" alt="UC ${p.uc}">`).join('');
-  document.getElementById('modal-img').classList.add('on');
+// ══════════════════════════════════════════
+//  TABS
+// ══════════════════════════════════════════
+function switchTab(tab){
+  document.getElementById('panel-uc').style.display=tab==='uc'?'block':'none';
+  document.getElementById('panel-spin').style.display=tab==='spin'?'block':'none';
+  document.getElementById('tab-uc').classList.toggle('active',tab==='uc');
+  document.getElementById('tab-spin').classList.toggle('active',tab==='spin');
+  if(tab==='spin'){updateCoinDisplay();}
 }
 
-// ── LOGIN
-function loginStep(){
-  const name=document.getElementById('l-name').value.trim();
-  const pass=document.getElementById('l-pass').value;
-  document.getElementById('l-err').textContent='';
-  if(!name){setErr('l-err','Ismni kiriting');return;}
-  if(!pass){setErr('l-err','Parolni kiriting');return;}
-  if(name.toLowerCase()===ADMIN_NAME){
-    if(pass!==ADMIN_PASS){setErr('l-err',"Admin paroli noto'g'ri");return;}
-    CU={name:'ADMIN',id:'000000000',role:'admin',uc:0};
-    saveSession();
-    openAdminModal();return;
+// ══════════════════════════════════════════
+//  COIN SYSTEM
+// ══════════════════════════════════════════
+function getCoins(){syncCU();return CU?.coins||0;}
+function addCoins(n){
+  if(CU.role==='admin') return;
+  const users=getUsers();const u=users.find(x=>x.name===CU.name);
+  if(u){u.coins=(u.coins||0)+n;saveUsers(users);CU=u;}
+  updateCoinDisplay();
+}
+function spendCoins(n){
+  if(CU.role==='admin') return true;
+  const users=getUsers();const u=users.find(x=>x.name===CU.name);
+  if(!u||u.coins<n) return false;
+  u.coins-=n;saveUsers(users);CU=u;updateCoinDisplay();return true;
+}
+function updateCoinDisplay(){
+  syncCU();
+  const el=document.getElementById('spin-coins');
+  if(el) el.textContent=getCoins();
+}
+
+// COIN PACKAGES
+const COIN_PKGS=[
+  {coins:5,price:'13 000 so\'m'},
+  {coins:10,price:'26 000 so\'m'},
+  {coins:50,price:'650 000 so\'m'},
+  {coins:100,price:'1 300 000 so\'m'},
+  {coins:200,price:'2 600 000 so\'m'},
+  {coins:500,price:'6 500 000 so\'m'},
+];
+function showCoinShop(){
+  const wrap=document.getElementById('coin-shop');
+  if(wrap.style.display==='block'){wrap.style.display='none';return;}
+  const grid=document.getElementById('coin-pkgs');
+  grid.innerHTML='';
+  COIN_PKGS.forEach(p=>{
+    const d=document.createElement('div');d.className='coin-pkg';
+    d.innerHTML=`<div class="coin-pkg-amt">🪙 ${p.coins}</div><div class="coin-pkg-label">COIN</div><div class="coin-pkg-price">${p.price}</div>`;
+    grid.appendChild(d);
+  });
+  wrap.style.display='block';
+  wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ══════════════════════════════════════════
+//  BARABAN (SPIN WHEEL)
+// ══════════════════════════════════════════
+// 10 segments: 720,360,120,60,30 aralashtirilgan
+// 120 ko'rinadi lekin HECH QACHON tushmaydi (weight=0)
+// 720 va 360 juda kam, 60 kam, 30 ko'p
+const SEGMENTS = [
+  {label:'30 UC',  uc:30,  color:'#0f1b27'},
+  {label:'60 UC',  uc:60,  color:'#162030'},
+  {label:'30 UC',  uc:30,  color:'#1a2a3a'},
+  {label:'720 UC', uc:720, color:'#1a1500'},
+  {label:'30 UC',  uc:30,  color:'#0d1620'},
+  {label:'60 UC',  uc:60,  color:'#0f1e2e'},
+  {label:'120 UC', uc:120, color:'#1a1000'},
+  {label:'30 UC',  uc:30,  color:'#1a2a3a'},
+  {label:'360 UC', uc:360, color:'#1a1800'},
+  {label:'30 UC',  uc:30,  color:'#0c1825'},
+];
+// 120 → weight 0 (ko'rinadi, lekin aslo tushmaydi!)
+// 720 → 1, 360 → 2, 60 → 18, 30 → 79 (jami 100)
+const WEIGHTS = [27, 18, 27, 1, 27, 18, 0, 27, 2, 27];
+// idx:           0   1   2   3   4   5   6   7   8   9
+
+let wheelAngle = 0;
+let wheelSpinning = false;
+
+function initWheel(){
+  drawWheel(wheelAngle);
+}
+
+function getSegColor(uc){
+  if(uc===720) return '#ffd166';
+  if(uc===360) return '#f0a500';
+  if(uc===120) return '#ff9a00';
+  if(uc===60)  return '#7ec8e3';
+  return '#7a9ab8';
+}
+
+function drawWheel(rotation){
+  const canvas=document.getElementById('wheel');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const cx=canvas.width/2, cy=canvas.height/2, r=cx-6;
+  const n=SEGMENTS.length;
+  const sliceAngle=2*Math.PI/n;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // outer glow ring
+  ctx.beginPath();
+  ctx.arc(cx,cy,r+3,0,2*Math.PI);
+  ctx.strokeStyle='rgba(240,165,0,0.15)';
+  ctx.lineWidth=6;
+  ctx.stroke();
+
+  for(let i=0;i<n;i++){
+    const start=rotation+i*sliceAngle;
+    const end=start+sliceAngle;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,start,end);
+    ctx.closePath();
+    ctx.fillStyle=SEGMENTS[i].color;
+    ctx.fill();
+    ctx.strokeStyle='rgba(240,165,0,0.25)';
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+
+    // text
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(start+sliceAngle/2);
+    ctx.textAlign='right';
+    ctx.fillStyle=getSegColor(SEGMENTS[i].uc);
+    const fs=SEGMENTS[i].uc>=360?'bold 12px':'bold 11px';
+    ctx.font=fs+' Orbitron,monospace';
+    ctx.fillText(SEGMENTS[i].label, r-8, 5);
+    ctx.restore();
   }
-  const u=findUser(name,pass);
-  if(!u){setErr('l-err',"Ism yoki parol noto'g'ri");return;}
-  CU=u;
-  saveSession();
-  enterDash();
+
+  // center circle
+  ctx.beginPath();
+  ctx.arc(cx,cy,28,0,2*Math.PI);
+  const cg=ctx.createRadialGradient(cx-4,cy-4,2,cx,cy,28);
+  cg.addColorStop(0,'#1a2a3a');
+  cg.addColorStop(1,'#060b10');
+  ctx.fillStyle=cg;
+  ctx.fill();
+  ctx.strokeStyle='#f0a500';
+  ctx.lineWidth=2;
+  ctx.stroke();
+  ctx.fillStyle='#f0a500';
+  ctx.font='bold 13px Georgia,serif';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  ctx.fillText('UC',cx,cy);
 }
 
+function pickWeightedIndex(){
+  // never pick index 6 (120 UC) — weight is 0
+  const total=WEIGHTS.reduce((a,b)=>a+b,0);
+  let r=Math.random()*total;
+  for(let i=0;i<WEIGHTS.length;i++){
+    r-=WEIGHTS[i];
+    if(r<=0) return i;
+  }
+  return 0;
+}
+
+function doSpin(){
+  if(wheelSpinning) return;
+  if(getCoins()<5){toast('Yetarli coin yo\'q! (5 🪙 kerak)');return;}
+  if(!spendCoins(5)){toast('Coin yetmadi!');return;}
+
+  wheelSpinning=true;
+  document.getElementById('spin-btn').disabled=true;
+  document.getElementById('spin-result').innerHTML='';
+
+  const targetIdx=pickWeightedIndex();
+  const n=SEGMENTS.length;
+  const sliceAngle=2*Math.PI/n;
+
+  // pointer at top = -π/2
+  // we want center of targetIdx slice at -π/2
+  const targetCenter = targetIdx*sliceAngle + sliceAngle/2;
+  const extra = Math.PI*2*(6 + Math.random()*4);
+  const finalAngle = -targetCenter - Math.PI/2 + extra;
+
+  const duration = 4500 + Math.random()*1200;
+  const startAngle = wheelAngle;
+  const startTime = performance.now();
+
+  function easeOut(t){return 1-Math.pow(1-t,4);}
+
+  function frame(now){
+    const elapsed=now-startTime;
+    const t=Math.min(elapsed/duration,1);
+    const current=startAngle+(finalAngle-startAngle)*easeOut(t);
+    wheelAngle=current;
+    drawWheel(current);
+    if(t<1){requestAnimationFrame(frame);}
+    else{
+      wheelAngle=((finalAngle%(2*Math.PI))+(2*Math.PI))%(2*Math.PI);
+      wheelSpinning=false;
+      document.getElementById('spin-btn').disabled=false;
+      showSpinResult(SEGMENTS[targetIdx]);
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
+function showSpinResult(seg){
+  if(CU.role!=='admin'){
+    const users=getUsers();
+    const u=users.find(x=>x.name===CU.name);
+    if(u){
+      u.uc=(u.uc||0)+seg.uc;
+      // save spin history
+      if(!u.spinHistory) u.spinHistory=[];
+      u.spinHistory.push({uc:seg.uc, time:Date.now()});
+      u.totalSpinUC=(u.totalSpinUC||0)+seg.uc;
+      saveUsers(users);CU=u;
+    }
+  }
+  const el=document.getElementById('spin-result');
+  el.innerHTML=`<div class="result-badge">🎉 +${seg.uc} UC YUTDINGIZ!</div>`;
+  toast(`🎉 ${seg.uc} UC yutdingiz!`);
+}
+
+// ══════════════════════════════════════════
+//  ADMIN AUTH
+// ══════════════════════════════════════════
 function openAdminModal(){
   document.getElementById('ap1').value='';document.getElementById('ap2').value='';
   document.getElementById('adm-err').textContent='';
   document.getElementById('modal-adm').classList.add('on');
 }
-
 function confirmAdmin(){
   const p1=document.getElementById('ap1').value;
   const p2=document.getElementById('ap2').value;
@@ -423,18 +801,6 @@ function confirmAdmin(){
   closeModal('modal-adm');
   enterAdmin();
 }
-
-function enterDash(){
-  showScr('s-main');
-  document.getElementById('w-name').textContent='SALOM, '+(CU.name||'GAMER').toUpperCase()+'!';
-  document.getElementById('hbadge-name').textContent=CU.name;
-  document.getElementById('hbadge').classList.add('on');
-  document.getElementById('btn-logout').style.display='inline-block';
-  document.getElementById('btn-adm-panel').style.display='inline-block';
-  buildGrid();
-  toast('Xush kelibsiz, '+CU.name+'!');
-}
-
 function enterAdmin(){
   showScr('s-admin');
   document.getElementById('hbadge-name').textContent='ADMIN';
@@ -445,48 +811,103 @@ function enterAdmin(){
   toast('Admin paneliga xush kelibsiz!');
 }
 
-// ── REGISTER
-function register(){
-  const id=document.getElementById('r-id').value.trim();
-  const name=document.getElementById('r-name').value.trim();
-  const pass=document.getElementById('r-pass').value;
-  const pass2=document.getElementById('r-pass2').value;
-  document.getElementById('r-err').textContent='';
-  document.getElementById('r-ok').textContent='';
-  if(!id||!name||!pass||!pass2){setErr('r-err',"Barcha maydonlarni to'ldiring");return;}
-  if(pass!==pass2){setErr('r-err',"Parollar mos emas");return;}
-  if(pass.length<6){setErr('r-err',"Parol kamida 6 ta belgi bo'lsin");return;}
-  if(name.toLowerCase()===ADMIN_NAME){setErr('r-err',"Bu nom band");return;}
-  const users=getUsers();
-  if(users.length>=MAX){setErr('r-err',`Maksimal foydalanuvchilar soni to'ldi (${MAX})`);return;}
-  if(users.find(u=>u.name.toLowerCase()===name.toLowerCase())){setErr('r-err',"Bu ism allaqachon band");return;}
-  users.push({name,id,pass,role:'user',uc:0});
-  saveUsers(users);
-  document.getElementById('r-ok').textContent='✓ Akkaunt muvaffaqiyatli ochildi! Kirish...';
-  setTimeout(()=>{resetLogin();showScr('s-login');},1800);
-}
-
-// ── ADMIN PANEL
+// ══════════════════════════════════════════
+//  ADMIN PANEL
+// ══════════════════════════════════════════
 function buildAdmin(){
   const users=getUsers();
+  const totalSpinUC=users.reduce((a,u)=>a+(u.totalSpinUC||0),0);
   document.getElementById('stats-row').innerHTML=`
     <div class="stat-card"><div class="stat-num">${users.length}</div><div class="stat-lbl">Foydalanuvchilar</div></div>
     <div class="stat-card"><div class="stat-num">${MAX}</div><div class="stat-lbl">Max sig'im</div></div>
-    <div class="stat-card"><div class="stat-num">${users.reduce((a,u)=>a+(u.uc||0),0)}</div><div class="stat-lbl">Jami yuborilgan UC</div></div>
+    <div class="stat-card"><div class="stat-num">${users.filter(u=>!u.banned).length}</div><div class="stat-lbl">Faol</div></div>
+    <div class="stat-card"><div class="stat-num">${users.reduce((a,u)=>a+(u.uc||0),0)}</div><div class="stat-lbl">Jami UC</div></div>
+    <div class="stat-card"><div class="stat-num">${totalSpinUC}</div><div class="stat-lbl">Baraban UC</div></div>
   `;
+
+  // SPIN HISTORY LOG
+  let allSpins=[];
+  users.forEach(u=>{
+    if(u.spinHistory&&u.spinHistory.length){
+      u.spinHistory.forEach(s=>allSpins.push({name:u.name,uc:s.uc,time:s.time}));
+    }
+  });
+  allSpins.sort((a,b)=>b.time-a.time);
+  const spinLog=document.getElementById('spin-log');
+  if(spinLog){
+    if(allSpins.length===0){
+      spinLog.innerHTML='<div style="padding:14px 18px;color:var(--muted);font-size:13px">Hali baraban o\'yinlari yo\'q</div>';
+    } else {
+      spinLog.innerHTML=allSpins.slice(0,30).map(s=>{
+        const d=new Date(s.time);
+        const timeStr=d.toLocaleDateString('uz-UZ')+' '+d.toLocaleTimeString('uz-UZ',{hour:'2-digit',minute:'2-digit'});
+        const col=s.uc>=360?'var(--gold)':s.uc>=120?'#f0a500':s.uc>=60?'#7ec8e3':'var(--muted)';
+        return `<div class="spin-log-row">
+          <span style="color:var(--gold);font-weight:700">${s.name}</span>
+          <span style="color:${col};font-weight:700;font-family:'Orbitron',monospace">+${s.uc} UC</span>
+          <span style="color:var(--muted);font-size:11px">${timeStr}</span>
+        </div>`;
+      }).join('');
+    }
+  }
+
   const tb=document.getElementById('users-tbl');
   tb.innerHTML=users.length
-    ? users.map(u=>`<div class="tbl-row">
-        <span style="color:var(--gold);font-weight:700">${u.name}</span>
+    ? users.map(u=>`
+      <div class="tbl-row${u.banned?' banned':''}">
+        <span style="color:${u.role==='admin'?'var(--red)':'var(--gold)'};font-weight:700">${u.name}${u.banned?' 🚫':''}</span>
         <span style="font-family:'Share Tech Mono',monospace;font-size:11px">${u.id}</span>
-        <span style="color:var(--gold2);font-weight:700">${u.uc||0} UC</span>
-        <span><span class="tag ${u.role==='admin'?'tag-admin':'tag-user'}">${u.role.toUpperCase()}</span></span>
-        <span><button class="role-btn" onclick="toggleRole('${u.name}')">${u.role==='admin'?'👤 USER':'⚔ ADMIN'}</button></span>
+        <span style="color:var(--gold2);font-weight:700">${u.uc||0}</span>
+        <span style="color:var(--green);font-size:12px">🪙${u.coins||0}<br><span style="color:var(--muted);font-size:10px">🎡${u.totalSpinUC||0}UC</span></span>
+        <span><span class="tag ${u.role==='admin'?'tag-adm':'tag-user'}">${u.role==='admin'?'ADMIN':'USER'}</span></span>
+        <span class="act-btns">
+          ${u.role==='admin'
+            ? `<button class="act-btn act-admin" onclick="setRole('${u.name}','user')">USER qil</button>`
+            : `<button class="act-btn act-admin" onclick="setRole('${u.name}','admin')">ADMIN qil</button>`}
+          ${u.banned
+            ? `<button class="act-btn act-ban" onclick="toggleBan('${u.name}',false)">BAN OL</button>`
+            : `<button class="act-btn act-ban" onclick="toggleBan('${u.name}',true)">BAN</button>`}
+          <button class="act-btn act-del" onclick="confirmDelete('${u.name}')">O'CHIR</button>
+        </span>
       </div>`).join('')
     : '<div style="padding:20px 18px;color:var(--muted);font-size:13px;text-align:center">Hali foydalanuvchi yo\'q</div>';
+
   const sel=document.getElementById('send-sel');
   sel.innerHTML='<option value="">Foydalanuvchi tanlang</option>';
-  users.forEach(u=>{const o=document.createElement('option');o.value=u.name;o.textContent=`${u.name} (ID: ${u.id})`;sel.appendChild(o);});
+  const csel=document.getElementById('coin-send-sel');
+  if(csel) csel.innerHTML='<option value="">Foydalanuvchi tanlang</option>';
+  users.filter(u=>!u.banned).forEach(u=>{
+    const o=document.createElement('option');o.value=u.name;o.textContent=`${u.name} (ID: ${u.id})`;
+    sel.appendChild(o);
+    if(csel){const o2=o.cloneNode(true);csel.appendChild(o2);}
+  });
+}
+
+function setRole(uname,role){
+  const users=getUsers();const u=users.find(x=>x.name===uname);
+  if(!u) return;
+  u.role=role;saveUsers(users);buildAdmin();
+  toast(`✓ ${uname} → ${role.toUpperCase()}`);
+}
+
+function toggleBan(uname,ban){
+  const users=getUsers();const u=users.find(x=>x.name===uname);
+  if(!u) return;
+  u.banned=ban;saveUsers(users);buildAdmin();
+  toast(ban?`🚫 ${uname} banlandi`:`✓ ${uname} bandan chiqarildi`);
+}
+
+function confirmDelete(uname){
+  document.getElementById('confirm-title').textContent="O'CHIRISH";
+  document.getElementById('confirm-msg').textContent=`"${uname}" akkauntini butunlay o'chirmoqchimisiz?`;
+  document.getElementById('confirm-yes').onclick=()=>{deleteUser(uname);closeModal('modal-confirm');};
+  document.getElementById('modal-confirm').classList.add('on');
+}
+
+function deleteUser(uname){
+  const users=getUsers().filter(u=>u.name!==uname);
+  saveUsers(users);buildAdmin();
+  toast(`🗑 ${uname} o'chirildi`);
 }
 
 function sendUC(){
@@ -504,26 +925,31 @@ function sendUC(){
   document.getElementById('send-amt').value='';
 }
 
-function toggleRole(username){
+function sendCoin(){
+  const uname=document.getElementById('coin-send-sel').value;
+  const amt=parseInt(document.getElementById('coin-send-amt').value);
+  document.getElementById('coin-send-ok').textContent='';
+  if(!uname){toast('Foydalanuvchi tanlang');return;}
+  if(!amt||amt<1){toast('Coin miqdori kiriting');return;}
   const users=getUsers();
-  const u=users.find(x=>x.name===username);
+  const u=users.find(x=>x.name===uname);
   if(!u){toast('Topilmadi');return;}
-  u.role=u.role==='admin'?'user':'admin';
-  saveUsers(users);
-  buildAdmin();
-  toast(`${username} ${u.role.toUpperCase()} qilindi!`);
+  u.coins=(u.coins||0)+amt;saveUsers(users);
+  document.getElementById('coin-send-ok').textContent=`✓ ${u.name} ga ${amt} 🪙 coin yuborildi!`;
+  buildAdmin();toast(`${amt} 🪙 → ${u.name}`);
+  document.getElementById('coin-send-amt').value='';
 }
 
-// ── UTILS
+// ══════════════════════════════════════════
+//  UTILS
+// ══════════════════════════════════════════
 function showScr(id){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');}
 function setErr(id,msg){document.getElementById(id).textContent=msg;}
 function closeModal(id){document.getElementById(id).classList.remove('on');}
 let tTimer;
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(tTimer);tTimer=setTimeout(()=>t.classList.remove('show'),3000);}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(tTimer);tTimer=setTimeout(()=>t.classList.remove('show'),3200);}
 function resetLogin(){['l-name','l-pass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('l-err').textContent='';}
-function logout(){CU=null;saveSession();resetLogin();showScr('s-login');document.getElementById('hbadge').classList.remove('on');document.getElementById('btn-logout').style.display='none';document.getElementById('btn-adm-panel').style.display='none';toast('Chiqildi.');}
 
-// ── KEYBOARD
 document.addEventListener('keydown',e=>{
   if(e.key!=='Enter')return;
   if(document.getElementById('modal-adm').classList.contains('on')){confirmAdmin();return;}
@@ -531,9 +957,6 @@ document.addEventListener('keydown',e=>{
   if(s.id==='s-login')loginStep();
   else if(s.id==='s-register')register();
 });
-
-// ── INIT - SESSIYANI QAYTARISH
-window.addEventListener('load',restoreSession);
 </script>
 </body>
 </html>
